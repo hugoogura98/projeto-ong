@@ -4,21 +4,36 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#2a8f6f">
-  <title>Projetos — ONG Viver de Novo</title>
+  <title>Projetos — ONG Exemplo</title>
   <meta name="description" content="Conheça nossos projetos sociais, oportunidades de voluntariado e formas de doar.">
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
+  <a class="skip-link" href="#main">Pular para o conteúdo</a>
   <header class="site-header" role="banner">
     <div class="container" style="position:relative;">
       <div style="display:flex;align-items:center;gap:1rem">
         <a href="index.html" class="logo-link" aria-label="Página inicial">
-          <img src="images/logo.png" alt="Viver de Novo" class="logo-img">
+          <img src="assets/images/logo/logo.png" alt="Viver de Novo" class="logo-img">
         </a>
       </div>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="main-nav">☰</button>
       <nav id="main-nav" class="main-nav" role="navigation" aria-label="Menu principal">
         <ul>
           <li><a href="index.html">Início</a></li>
-          <li><a href="projetos.html">Projetos</a></li>
+          <li class="has-submenu">
+            <button aria-expanded="false" class="submenu-toggle">
+              Projetos
+              <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            <ul class="submenu" hidden>
+              <li><a href="#educacao">Educação</a></li>
+              <li><a href="#alimentacao">Alimentação</a></li>
+              <li><a href="#acolhimento">Acolhimento</a></li>
+            </ul>
+          </li>
           <li><a href="cadastro.html">Cadastre-se</a></li>
         </ul>
       </nav>
@@ -30,18 +45,30 @@
       <h1 id="projects-title">Projetos sociais</h1>
       <p>Conheça os projetos em que atuamos e como você pode ajudar — seja como voluntário ou doador.</p>
       <section class="project-list" aria-label="Lista de projetos">
-        <article class="project" aria-labelledby="proj1-title">
-          <h2 id="proj1-title">Educação para Todos</h2>
+        <article id="educacao" class="project" aria-labelledby="proj1-title">
+          <h2 id="proj1-title">Educação para Todos <span class="badge badge--success">Em andamento</span></h2>
           <p>Projeto focado em aulas de reforço escolar e alfabetização.</p>
-          <img src="images/estudo.png" alt="Crianças em sala de aula" loading="lazy">
+          <figure class="project-banner">
+            <img src="assets/images/criancas-aula.jpg" alt="Crianças em sala de aula" loading="lazy">
+            <figcaption>Educação: reforço escolar e alfabetização</figcaption>
+          </figure>
           <p>Indicadores: 200 alunos atendidos, 90% de aprovação.</p>
+          <div>
+            <button class="btn btn-primary" data-modal-title="Educação para Todos" data-modal-content="Detalhes do projeto Educação">Saiba mais</button>
+          </div>
         </article>
 
-        <article class="project" aria-labelledby="proj2-title">
-          <h2 id="proj2-title">Alimentando Vidas</h2>
+        <article id="alimentacao" class="project" aria-labelledby="proj2-title">
+          <h2 id="proj2-title">Alimentando Vidas <span class="badge badge--warn">Campanha</span></h2>
           <p>Rede de distribuição de alimentos para famílias em vulnerabilidade.</p>
-          <img src="images/cesta_basica.jpg" alt="Distribuição de cestas básicas" loading="lazy">
+          <figure class="project-banner">
+            <img src="assets/images/cesta_basica.jpg" alt="Distribuição de cestas básicas" loading="lazy">
+            <figcaption>Distribuição de alimentos e apoio emergencial</figcaption>
+          </figure>
           <p>Indicadores: 5.000 cestas distribuídas.</p>
+          <div>
+            <button class="btn btn-primary" data-modal-title="Alimentando Vidas" data-modal-content="Detalhes do projeto Alimentação">Saiba mais</button>
+          </div>
         </article>
       </section>
 
@@ -51,19 +78,19 @@
         <p><a href="cadastro.html">Cadastre-se</a> para participar como voluntário ou apoiador.</p>
       </section>
 
-      <section class="gallery" aria-labelledby="gallery-title">
+      <section id="acolhimento" class="gallery" aria-labelledby="gallery-title">
         <h2 id="gallery-title">Galeria de Intervenções</h2>
         <div class="cards">
           <div class="card">
-            <img src="images/reuniao.jpeg" alt="Reunião comunitária" loading="lazy">
+            <img src="assets/images/reu_comunitaria.jpg" alt="Reunião comunitária" loading="lazy">
             <p>Rodas de conversa com participantes do programa de reinserção.</p>
           </div>
           <div class="card">
-            <img src="images/material.webp" alt="Material relacionado ao uso de drogas" loading="lazy">
+            <img src="assets/images/material.jpg" alt="Material relacionado ao uso de drogas" loading="lazy">
             <p>Campanhas de prevenção às drogas e encaminhamento para tratamento.</p>
           </div>
           <div class="card">
-            <img src="images/cracolandia.jpg" alt="Pessoa em situação de rua" loading="lazy">
+            <img src="assets/images/imagem3.jpg" alt="Pessoa em situação de rua" loading="lazy">
             <p>Projetos de acolhimento e recuperação para pessoas em situação de rua.</p>
           </div>
         </div>
@@ -73,9 +100,12 @@
 
   <footer class="site-footer" role="contentinfo">
     <div class="container">
-      <p>&copy; ONG Viver de Novo</p>
+      <p>&copy; <span id="year"></span> ONG Exemplo</p>
     </div>
   </footer>
+    <div class="toast-container" aria-live="polite" aria-atomic="true"></div>
+    <div id="modal-root" aria-hidden="true"></div>
 
+  <script src="assets/js/main.js" defer></script>
 </body>
 </html>
