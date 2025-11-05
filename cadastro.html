@@ -103,14 +103,20 @@
 
   <footer class="site-footer" role="contentinfo">
     <div class="container">
-      <p>&copy; <span id="year"></span> ONG Exemplo</p>
+      <p>&copy; 2025 ONG Viver De Novo</p>
     </div>
   </footer>
-</footer>
-
   <div class="toast-container" aria-live="polite" aria-atomic="true"></div>
   <div id="modal-root" aria-hidden="true"></div>
-
-  <script type="module" src="assets/js/main.js" defer></script>
+  <script type="module">
+    import { initializeFormValidation } from './assets/js/modules/formValidation.js';
+    
+    // Garante que o código só será executado após o carregamento da página
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initializeFormValidation);
+    } else {
+      initializeFormValidation();
+    }
+  </script>
 </body>
 </html>
