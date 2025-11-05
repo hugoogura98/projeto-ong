@@ -6,19 +6,34 @@
   <meta name="theme-color" content="#2a8f6f">
   <title>ONG Viver de Novo — Início</title>
   <meta name="description" content="ONG Exemplo: missão, projetos e oportunidades de voluntariado.">
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
+  <a class="skip-link" href="#main">Pular para o conteúdo</a>
   <header class="site-header" role="banner">
     <div class="container" style="position:relative;">
       <div style="display:flex;align-items:center;gap:1rem">
         <a href="index.html" class="logo-link" aria-label="Página inicial">
-          <img src="images/logo.png" alt="Viver de Novo" class="logo-img">
+          <img src="assets/images/logo/logo.png" alt="Viver de Novo" class="logo-img">
         </a>
       </div>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="main-nav">☰</button>
       <nav id="main-nav" class="main-nav" role="navigation" aria-label="Menu principal">
         <ul>
           <li><a href="index.html">Início</a></li>
-          <li><a href="projetos.html">Projetos</a></li>
+          <li class="has-submenu">
+            <button aria-expanded="false" class="submenu-toggle">
+              Projetos
+              <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            <ul class="submenu" hidden>
+              <li><a href="projetos.html#educacao">Educação</a></li>
+              <li><a href="projetos.html#alimentacao">Alimentação</a></li>
+              <li><a href="projetos.html#acolhimento">Acolhimento</a></li>
+            </ul>
+          </li>
           <li><a href="cadastro.html">Cadastre-se</a></li>
         </ul>
       </nav>
@@ -26,10 +41,13 @@
   </header>
 
   <main class="container" id="main" role="main">
+    <div class="alert alert--info" role="status">
+      <strong>Relatório de Transparência:</strong> Consulte nossos relatórios públicos e prestação de contas <a href="#">aqui</a>.
+    </div>
     <section class="hero" aria-labelledby="hero-title">
       <h1 id="hero-title">Nossa missão</h1>
       <p>Construir comunidades mais fortes por meio de projetos sociais, educação e inclusão.</p>
-      <img src="images/imagem2.jpg" alt="Voluntários em ação" loading="lazy">
+      <img src="assets/images/voluntarios.jpg" alt="Voluntários em ação" loading="lazy">
     </section>
 
     <section class="about" aria-labelledby="about-title">
@@ -56,21 +74,43 @@
       </div>
     </section>
 
+    <section class="team" aria-labelledby="team-title">
+      <h2 id="team-title">Nossa equipe</h2>
+      <p>Conheça alguns membros e voluntários que atuam nos projetos.</p>
+      <div class="team-grid">
+        <figure>
+          <img src="assets/images/reuniao.png" alt="Voluntários em reunião" loading="lazy">
+          <figcaption>João Silva — Coordenador de Projetos</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/images/prevençao.jpg" alt="Ação de prevenção" loading="lazy">
+          <figcaption>Maria Souza — Assistente Social</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/images/acolhimento.jpeg" alt="Acolhimento de pessoa" loading="lazy">
+          <figcaption>Carlos Pereira — Voluntário</figcaption>
+        </figure>
+      </div>
+    </section>
+
     <section class="contact" aria-labelledby="contact-title">
       <h2 id="contact-title">Contato</h2>
       <address>
-        <p>Rua corin, 123 — São Paulo — SP</p>
-        <p>Email: <a href="mailto:viverdenovo@contato.org">viverdenovo@contato.org</a></p>
-        <p>Telefone: <a href="tel:+5511955487589">(11) 95548-7589</a></p>
+        <p>Rua Exemplo, 123 — Cidade — Estado</p>
+        <p>Email: <a href="mailto:contato@ongexemplo.org">contato@ongexemplo.org</a></p>
+        <p>Telefone: <a href="tel:+551100000000">(11) 0000-0000</a></p>
       </address>
     </section>
   </main>
 
   <footer class="site-footer" role="contentinfo">
     <div class="container">
-      <p>&copy; ONG Viver de Novo — Todos os direitos reservados.</p>
+      <p>&copy; <span id="year"></span> ONG Exemplo — Todos os direitos reservados.</p>
     </div>
   </footer>
+  <div class="toast-container" aria-live="polite" aria-atomic="true"></div>
+  <div id="modal-root" aria-hidden="true"></div>
 
+  <script type="module" src="assets/js/main.js" defer></script>
 </body>
 </html>
