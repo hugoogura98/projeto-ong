@@ -18,6 +18,11 @@
         </a>
       </div>
       <button class="nav-toggle" aria-expanded="false" aria-controls="main-nav">☰</button>
+      <!-- Controles de acessibilidade: modo escuro e alto contraste -->
+      <div class="header-controls" aria-hidden="false">
+        <button id="toggle-dark" class="btn btn-ghost toggle-btn" aria-pressed="false" aria-label="Ativar modo escuro">Modo escuro</button>
+        <button id="toggle-contrast" class="btn btn-ghost toggle-btn" aria-pressed="false" aria-label="Ativar alto contraste">Alto contraste</button>
+      </div>
       <nav id="main-nav" class="main-nav" role="navigation" aria-label="Menu principal">
         <ul>
           <li><a href="index.html">Início</a></li>

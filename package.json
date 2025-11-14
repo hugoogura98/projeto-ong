@@ -1,0 +1,25 @@
+{
+  "name": "projeto-ong",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Site estático da ONG Viver de Novo — build scripts para minificação e otimização",
+  "engines": {
+    "node": ">=14"
+  },
+  "scripts": {
+    "build:html": "html-minifier-terser --collapse-whitespace --remove-comments --minify-css true --minify-js true -o dist/index.html index.html",
+    "build:css": "cleancss -o dist/assets/css/style.css assets/css/style.css",
+    "build:js": "terser assets/js/main.js -o dist/assets/js/main.js --compress --mangle",
+    "compress:images": "imagemin assets/images/* --out-dir=dist/assets/images",
+    "build": "npm run build:html && npm run build:css && npm run build:js && npm run compress:images"
+  },
+  "devDependencies": {
+    "html-minifier-terser": "^6.0.0",
+    "terser": "^5.17.0",
+    "clean-css-cli": "^5.5.0",
+    "imagemin-cli": "^7.0.1",
+    "imagemin-mozjpeg": "^9.0.0",
+    "imagemin-pngquant": "^9.0.2",
+    "svgo": "^2.8.0"
+  }
+}
