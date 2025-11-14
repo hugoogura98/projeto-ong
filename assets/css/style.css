@@ -519,3 +519,37 @@ button:focus, input:focus, select:focus{outline:3px solid rgba(42,143,111,.15)}
 .skip-link{position:absolute;left:-9999px}
 .skip-link:focus{position:static;background:#fff;padding:.25rem}
 
+/* Estilos para toggles de acessibilidade */
+.header-controls{display:flex;gap:0.5rem;align-items:center}
+.toggle-btn{font-size:0.9rem;padding:6px 10px;border-radius:6px;background:transparent;border:1px solid rgba(255,255,255,0.15);color:#fff}
+.toggle-btn[aria-pressed="true"]{background:rgba(255,255,255,0.12);box-shadow:0 0 0 3px rgba(255,255,255,0.06)}
+
+/* Melhor foco para teclado (usar focus-visible quando disponível) */
+:focus{outline: none}
+:focus-visible{outline:3px solid #ffd54f;outline-offset:2px}
+
+/* Modo escuro (suave) */
+.dark-mode{
+  --bg: #0b1220;
+  --text: #e6eef6;
+  --muted: #bfcbd8;
+  --color-primary: #1f7a5a;
+  --color-primary-700: #166043;
+  --color-neutral-100: #07111a;
+}
+
+/* Alto contraste (branco/preto forte) */
+.high-contrast{
+  --bg: #000000;
+  --text: #ffffff;
+  --muted: #ffffff;
+  --color-primary: #ffffff;
+  --color-primary-700: #ffffff;
+}
+
+/* Ajustes visuais para alto contraste */
+.high-contrast body, .high-contrast .container{background:var(--bg);color:var(--text)}
+.high-contrast a{color:#ffff00}
+.high-contrast .main-nav a, .high-contrast .submenu-toggle-label{color:var(--text)}
+
+
